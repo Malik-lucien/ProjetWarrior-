@@ -1,16 +1,8 @@
 package com.company.personnages;
 
-public class Mage {
+public class Mage extends Persso{
 
-    private String name;
-    private int vieMin;
-    private int vieMax;
-    private int niveauDeVie;
-    private int forceMin;
-    private int forcemax;
-    private int forceAttaque;
-    private String defence;
-    private String sort;
+
 
     //------------------------------------------------------------------------
     public Mage() {

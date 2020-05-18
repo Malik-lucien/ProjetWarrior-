@@ -55,8 +55,11 @@ public class Menu {
                 Mage mage = new Mage("malik ", 4, 15);
                 created = true;
                 System.out.println(" vous avez choisi: " + mage.toString());
-            } else {
-                System.out.println("erreur saisir donner valide");
+            }else if (choise.equals("licorne")){
+                System.out.println("ne te prend pas pour une licore petit scarabé ");
+            }
+            else  {
+                System.out.println("erreur saisir donner valide" );
             }
         }
 /** la methode scanner sert a lire les informations entrées par l'utilisateur  et en suite pouvoir interagire avec!, .nextLine serv a taper les informations dans la console,

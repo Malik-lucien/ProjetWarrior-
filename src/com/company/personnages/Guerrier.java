@@ -2,26 +2,18 @@ package com.company.personnages;
 
 import java.util.Random;
 
-public class Guerrier {
+public class Guerrier extends Persso {
     // POUR CHAQUE ATTRIBUT FAIRE UN GETTER ET UN SETTER,  IMPOSSIBLE D4ACCEDER DIRECTEMENT AU ATTRIBUT DE C'
-    protected String name;
-    protected int niveauDeVie;
-    protected int forceAttaque;
-    protected String bouclier;
-    protected String arme;
-    private int vieMin;
-    private int vieMax;
-    private int forceMin;
-    private int forcemax;
+
 
     //----------------------------------------------------------------------------------------------------------------------
     public Guerrier() {
-        vieMin = 5;
-        vieMax = 10;
+        this.getvieMin() = 5;
+        this.VieMax() = 10;
         forceMin = 5;
         forcemax = 10;
 
-        name = "jean-heude";
+        this.setName("patrice");
         niveauDeVie = 6;
         forceAttaque = 10;
         bouclier = "";
@@ -29,9 +21,9 @@ public class Guerrier {
     }
 
     public Guerrier(String name) {
-        this.name = name;
-        niveauDeVie = 10;
-        forceAttaque = 8;
+        this.getName();
+        this.setNiveauDeVie(10);
+        this.setForceAttaque(8);
     }
 
     public Guerrier(int forceAttaque, int niveauDeVie) {
