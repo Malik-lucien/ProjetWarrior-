@@ -1,80 +1,48 @@
 package com.company.personnages;
 
-public class Mage extends Persso{
+public class Mage extends Persso {
 
-
+    private String defence;
+    private String sort;
 
     //------------------------------------------------------------------------
     public Mage() {
-        name = " lucifer ";
-        niveauDeVie = 6;
-        vieMin = 3;
-        vieMax = 6;
-        forceAttaque = 15;
-        forceMin = 8;
-        forcemax = 15;
-        defence = "philtre";
-        sort = "avada-quedavra";
+        super("lucier", 6, 15);
+        this.vieMin = 3;
+        this.vieMax = 6;
+        this.forceMin = 8;
+        this.forcemax = 15;
+        this.defence = "philtre";
+        this.sort = "avada-quedavra";
     }
 
     public Mage(String name) {
-        this.name = name;
-        niveauDeVie = 6;
-        forceAttaque = 15;
+        this(name,6,15);
     }
 
     public Mage(int niveauDeVie, int forceAttaque) {
-        name = " lucifer ";
-        this.niveauDeVie = niveauDeVie;
-        this.forceAttaque = forceAttaque;
-
+        this("",niveauDeVie, forceAttaque);
     }
 
     public Mage(String name, int niveauDeVie, int forceAttaque) {
-        this.name = name;
-        this.niveauDeVie = niveauDeVie;
-        this.forceAttaque = forceAttaque;
+        super(name, niveauDeVie, forceAttaque);
     }
 
-    //------------------------------------------------------------------------
+    //----------------------override--------------------------------------------------
     @Override
     public String toString() {
         return "nom: " + name + "niveau de vie: " + niveauDeVie + " force:  " + forceAttaque;
     }
 
-    //-----------------------------------------------------------------------
-    public String getName() {
-        return name;
-    }
-
-    public int getNiveauDeVie() {
-        return niveauDeVie;
-    }
-
-    public int getForceAttaque() {
-        return forceAttaque;
-    }
+    //----------------getter-------------------------------------------------------
 
     public String getDefence() {
         return defence;
     }
-
     public String getSort() {
         return sort;
     }
-    //-----------------------------------------------------------------------
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setNiveauDeVie(int niveauDeVie) {
-        this.niveauDeVie = niveauDeVie;
-    }
-
-    public void setForceAttaque(int forceAttaque) {
-        this.forceAttaque = forceAttaque;
-    }
+    //-----------------setter------------------------------------------------------
 
     public void setDefence(String defence) {
         this.defence = defence;

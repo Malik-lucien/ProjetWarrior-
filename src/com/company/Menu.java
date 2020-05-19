@@ -48,18 +48,17 @@ public class Menu {
                     " - guerrier ");
             String choise = scanner.nextLine();
             if (choise.equals("guerrier")) {
-                Guerrier guerrier = new Guerrier("malik", 6, 5);
+                Guerrier guerrier = new Guerrier();
                 created = true;
                 System.out.println(" vous avez choisi: " + guerrier.toString());
             } else if (choise.equals("mage")) {
-                Mage mage = new Mage("malik ", 4, 15);
+                Mage mage = new Mage();
                 created = true;
                 System.out.println(" vous avez choisi: " + mage.toString());
-            }else if (choise.equals("licorne")){
+            } else if (choise.equals("licorne")) {
                 System.out.println("ne te prend pas pour une licore petit scarabé ");
-            }
-            else  {
-                System.out.println("erreur saisir donner valide" );
+            } else {
+                System.out.println("erreur saisir donner valide");
             }
         }
 /** la methode scanner sert a lire les informations entrées par l'utilisateur  et en suite pouvoir interagire avec!, .nextLine serv a taper les informations dans la console,
@@ -96,17 +95,19 @@ public class Menu {
         System.out.println(" fin de partie voulez-vous recommencer une partie  ? ");
         String verif1 = scanner.nextLine();
         System.out.println(verif1);
-        if (verif1.equals("y")) {
-            System.out.println(" restart ? ");
-            if (verif1.equals("r")) ;
-            {
-                plateau.rulesGame();
-            }
+        while (verif1.equals("y")) {
             if (verif1.equals("y")) {
                 System.out.println(" restart ? ");
-                plateau.rulesGame();
-            } else {
-                System.out.println(" exit ");
+                if (verif1.equals("r")) ;
+                {
+                    plateau.rulesGame();
+                }
+                if (verif1.equals("y")) {
+                    System.out.println(" restart ? ");
+                    plateau.rulesGame();
+                } else {
+                    System.out.println(" exit ");
+                }
             }
 
 
