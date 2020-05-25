@@ -1,16 +1,20 @@
 package com.company.armes;
 
-public class Armes {
+public abstract class Armes {
     //attribut --------------------------------------------------------------------------
-    private String name;
-    private String force;
+    protected String name;
+    protected int force;
 
 
     //----------constructeur ------------------------------------------------------------
     public Armes() {
-
+        name ="Epee";
+        force = 5;
     }
-
+    public Armes(String name, int force){
+        this.name = "Epee";
+        this.force = 5;
+    }
     //---------getter /setter ------------------------------------------
     public String getName() {
         return name;
@@ -20,11 +24,11 @@ public class Armes {
         this.name = name;
     }
 
-    public String getForce() {
+    public int getForce() {
         return force;
     }
 
-    public void setForce(String force) {
+    public void setForce(int force) {
         this.force = force;
     }
 }

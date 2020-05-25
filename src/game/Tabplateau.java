@@ -25,24 +25,28 @@ public class Tabplateau {
 
     //------------------------
     public void tabSimp() {
+        posJ = posJ + dice;
+        lancer++;
         ArrayList<Object> plateau = new ArrayList<>();
         plateau.add("");
         plateau.add(Ennemie);
         plateau.add("");
         plateau.add(Bonus);
-        posJ = posJ + dice;
-        lancer++;
-        if (posJ == caseMax) {
-            System.out.println("vous avez finie");
-        } else {
-            System.out.println("continuer a jouer ");
-            for (int i = 0; i < plateau.size(); i++) {
-                System.out.println("vous êtes sur la case : " + plateau.get(i));
+        for (int i = 0; i < plateau.size(); i++) {
+            System.out.println("vous êtes sur la case : " + i  + plateau.get(i));
+        }
+        while (posJ > caseMax) {
+            if (posJ < caseMax) {
+                posJ += dice;
+                lancer++;
+            } else if (posJ == caseMax) {
+                System.out.println("vous avez finie");
+            } else {
+                System.out.println("continuer a jouer ");
             }
         }
-    }
 
-    ;
+    }
 
 
     public String toString() {

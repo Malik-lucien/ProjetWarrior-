@@ -89,6 +89,7 @@ public class Plateau {
 //----------------------------------methode-------------------------------------------------
 
     public void rulesGame() throws PersonnageHorsPlateauException {
+
         positionJoueur = caseDepart;
         while (positionJoueur < casePlateaux || positionJoueur > casePlateaux) {
             resultDice = (int) (Math.random() * (7));

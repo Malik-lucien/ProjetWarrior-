@@ -12,10 +12,11 @@ public class Main {
     public static void main(String[] args) {
         Tabplateau newPlateau = new Tabplateau();
         System.out.println(newPlateau);
-        Menu menu = new Menu();
-        menu.messageAcceuil();
-        menu.choicePlayer();
-        menu.lancerPartie();
+        newPlateau.tabSimp();
+//        Menu menu = new Menu();
+//        menu.messageAcceuil();
+//        menu.choicePlayer();
+//        menu.lancerPartie();
 
 
 
