@@ -14,6 +14,7 @@ public class Mage extends Persso {
         this.forcemax = 15;
         this.defence = "philtre";
         this.sort = "avada-quedavra";
+
     }
 
     public Mage(String name) {
@@ -47,9 +48,8 @@ public class Mage extends Persso {
     public void setDefence(String defence) {
         this.defence = defence;
     }
-
     public void setSort(String sort) {
         this.sort = sort;
     }
-};
+}
 

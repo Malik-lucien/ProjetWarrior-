@@ -1,14 +1,14 @@
 package com.company.personnages;
 
 import java.util.Random;
+
 //apstract pour limiter des risques !!!!!!!!!!!
-public class Persso {
+ public abstract class Persso {
     //------------attribus/////-
     protected String name;
     protected int niveauDeVie;
     protected int forceAttaque;
-    protected String bouclier;
-    protected String arme;
+
     protected int vieMin;
     protected int vieMax;
     protected int forceMin;
@@ -16,20 +16,21 @@ public class Persso {
 
     //-------constructeur /--------------
     public Persso() {
-        this.name = "patice";
+        this.name = "patrice";
         this.niveauDeVie = 7;
         this.forceAttaque = 8;
     }
-    public Persso(String name, int niveauDeVie, int forceAttaque){
-        this.name = "patice";
-        this.niveauDeVie = 7;
-        this.forceAttaque = 8;
-    }
-    public Persso(int niveauDeVie, int forceAttaque){
+    public Persso(int niveauDeVie, int forceAttaque) {
         this.niveauDeVie = 6;
-        this.forceAttaque=8;
+        this.forceAttaque = 8;
 
     }
+    public Persso(String name, int niveauDeVie, int forceAttaque) {
+        this.name = "patice";
+        this.niveauDeVie = 7;
+        this.forceAttaque = 8;
+    }
+
     public Persso(String name, int niveauDeVie, int forceAttaque, int vieMin, int vieMax, int forceMin, int forcemax) {
         this.name = name;
         this.niveauDeVie = niveauDeVie;
@@ -39,7 +40,8 @@ public class Persso {
         this.forceMin = forceMin;
         this.forcemax = forcemax;
     }
-//-------------------------------------------------------
+
+    //-------------------------------------------------------
     public String getName() {
         return name;
     }
@@ -50,14 +52,6 @@ public class Persso {
 
     public int getForceAttaque() {
         return forceAttaque;
-    }
-
-    public String getBouclier() {
-        return bouclier;
-    }
-
-    public String getArme() {
-        return arme;
     }
 
     public int getVieMin() {
@@ -88,13 +82,6 @@ public class Persso {
         this.forceAttaque = forceAttaque;
     }
 
-    public void setBouclier(String bouclier) {
-        this.bouclier = bouclier;
-    }
-
-    public void setArme(String arme) {
-        this.arme = arme;
-    }
 
     public void setVieMin(int vieMin) {
         this.vieMin = vieMin;
@@ -118,8 +105,6 @@ public class Persso {
                 "name='" + name + '\'' +
                 ", niveauDeVie=" + niveauDeVie +
                 ", forceAttaque=" + forceAttaque +
-                ", bouclier='" + bouclier + '\'' +
-                ", arme='" + arme + '\'' +
                 ", vieMin=" + vieMin +
                 ", vieMax=" + vieMax +
                 ", forceMin=" + forceMin +

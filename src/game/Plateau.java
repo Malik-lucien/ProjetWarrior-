@@ -1,4 +1,6 @@
-package com.company;
+package game;
+
+import java.util.ArrayList;
 
 public class Plateau {
     //--------------------------initialisation des variables--------------------------------
@@ -9,14 +11,13 @@ public class Plateau {
     private int resultDice;
     private int retourCaseDepart;
     private int nombreDeTour;
-
+    private ArrayList plateau;
 
     //-----------------------------constructeur -----------------------------------------------------------
     public Plateau() {
         casePlateaux = 64;
         caseDepart = 1;
         positionJoueur = caseDepart;
-
         nombreDeTour = 0;
         resultDice = dice1;
         retourCaseDepart = caseDepart;
@@ -87,20 +88,19 @@ public class Plateau {
 
 //----------------------------------methode-------------------------------------------------
 
-    public void rulesGame() {
+    public void rulesGame() throws PersonnageHorsPlateauException {
         positionJoueur = caseDepart;
-        while (positionJoueur < casePlateaux  /*|| positionJoueur > casePlateaux*/ ) {
+        while (positionJoueur < casePlateaux || positionJoueur > casePlateaux) {
             resultDice = (int) (Math.random() * (7));
             positionJoueur += resultDice;
             nombreDeTour++;
             if (positionJoueur == casePlateaux) {
                 System.out.println("Fin de partie felicitation vous, n'êtes pas mort");
-            }
-            if (positionJoueur > casePlateaux) {
-                positionJoueur -= resultDice * 2;
+
+            } else if (positionJoueur > casePlateaux) {
+                throw new PersonnageHorsPlateauException();
             }
         }
-
     }
 
     @Override

@@ -1,8 +1,7 @@
-package com.company;
+package game;
 
 import com.company.personnages.Guerrier;
 import com.company.personnages.Mage;
-import org.w3c.dom.ls.LSOutput;
 
 
 import java.util.Scanner;
@@ -10,7 +9,7 @@ import java.util.Scanner;
 public class Menu {
     //-------------------initialisation des données --------------------------------------------------------------------
     private String newgame;
-
+    private int newspos;
 
     //-------------------constructeurs ---------------------------------------------------------------------------------
     public Menu() {
@@ -39,7 +38,6 @@ public class Menu {
      */
     public void choicePlayer() {
 
-
         boolean created = false;
         Scanner scanner = new Scanner(System.in);
         while (!created) {
@@ -61,16 +59,14 @@ public class Menu {
                 System.out.println("erreur saisir donner valide");
             }
         }
+
 /** la methode scanner sert a lire les informations entrées par l'utilisateur  et en suite pouvoir interagire avec!, .nextLine serv a taper les informations dans la console,
  *  avec .equals() je peux verifier si l'utilisateur a rentrer la bonne donner*/
 
         System.out.println(" choisisez votre hero ");
         String choice = scanner.nextLine();
-
-
         System.out.println(" vous avez choisie: " + choice + " ? confirmer avec y pour 'yes', ou n pour  'no'");
         String verif = scanner.nextLine();
-
 
         if (verif.equals("y")) {
             System.out.println(" let is go ?");
@@ -80,42 +76,39 @@ public class Menu {
             messageAcceuil();
             choicePlayer();
         }
+    }
+
+    public void lancerPartie() {
+        Scanner scanner = new Scanner(System.in);
         Plateau plateau = new Plateau();
         String start = scanner.nextLine();
         if (start.equals("y")) {
             System.out.println(" go  !!!!!!!!!!!!!! ");
-            plateau.rulesGame();
-
+            try {
+                plateau.rulesGame();
+            } catch (PersonnageHorsPlateauException e) {
+                newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
+                plateau.setPositionJoueur(newspos);
+//                e.printStackTrace();
+            }
         } else {
             System.out.println(" retour a l'acceil !");
             messageAcceuil();
             choicePlayer();
         }
-
         System.out.println(" fin de partie voulez-vous recommencer une partie  ? ");
         String verif1 = scanner.nextLine();
         System.out.println(verif1);
-        while (verif1.equals("y")) {
-            if (verif1.equals("y")) {
-                System.out.println(" restart ? ");
-                if (verif1.equals("r")) ;
-                {
-                    plateau.rulesGame();
-                }
-                if (verif1.equals("y")) {
-                    System.out.println(" restart ? ");
-                    plateau.rulesGame();
-                } else {
-                    System.out.println(" exit ");
-                }
+        System.out.println(" restart ? ");
+        if (verif1.equals("y")) {
+            try {
+                plateau.rulesGame();
+            } catch (PersonnageHorsPlateauException e) {
+                newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
+                plateau.setPositionJoueur(newspos);
             }
-
-
+        } else {
+            System.out.println(" exit ");
         }
-
-
-        //------------------------------------------------------------------------------------------------------------------
-
-
     }
 }
