@@ -7,11 +7,7 @@ public class Guerrier extends Persso {
 
     //----------------------------constructeur----------------------------------------
     public Guerrier() {
-        super("malik", 5, 10);
-        this.vieMin = 5;
-        this.vieMax = 10;
-        this.forceMin = 5;
-        this.forcemax = 10;
+        super("malik", 5, 10, 0, 10, 1, 10);
         this.bouclier = "";
         this.arme = "albarde";
 
@@ -40,6 +36,7 @@ public class Guerrier extends Persso {
     public String getBouclier() {
         return bouclier;
     }
+
     public String getArme() {
         return arme;
     }
@@ -48,6 +45,7 @@ public class Guerrier extends Persso {
     public void setBouclier(String bouclier) {
         this.bouclier = bouclier;
     }
+
     public void setArme(String arme) {
         this.arme = arme;
     }

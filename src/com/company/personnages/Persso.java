@@ -2,13 +2,12 @@ package com.company.personnages;
 
 import java.util.Random;
 
-//apstract pour limiter des risques !!!!!!!!!!!
- public abstract class Persso {
+//apstract (empèche de d'instencier) pour limiter des risques !!!!!!!!!!!
+public abstract class Persso {
     //------------attribus/////-
     protected String name;
     protected int niveauDeVie;
     protected int forceAttaque;
-
     protected int vieMin;
     protected int vieMax;
     protected int forceMin;
@@ -20,15 +19,17 @@ import java.util.Random;
         this.niveauDeVie = 7;
         this.forceAttaque = 8;
     }
+
     public Persso(int niveauDeVie, int forceAttaque) {
-        this.niveauDeVie = 6;
-        this.forceAttaque = 8;
+        this.niveauDeVie = niveauDeVie;
+        this.forceAttaque = forceAttaque;
 
     }
+
     public Persso(String name, int niveauDeVie, int forceAttaque) {
-        this.name = "patice";
-        this.niveauDeVie = 7;
-        this.forceAttaque = 8;
+        this.name = name;
+        this.niveauDeVie = niveauDeVie;
+        this.forceAttaque = forceAttaque;
     }
 
     public Persso(String name, int niveauDeVie, int forceAttaque, int vieMin, int vieMax, int forceMin, int forcemax) {

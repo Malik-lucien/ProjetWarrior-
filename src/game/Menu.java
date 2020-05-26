@@ -90,6 +90,7 @@ public class Menu {
                 newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
                 plateau.setPositionJoueur(newspos);
 //                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         } else {
             System.out.println(" retour a l'acceil !");

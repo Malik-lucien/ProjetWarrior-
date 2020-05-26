@@ -1,6 +1,8 @@
 package com.company.armes;
 
-public abstract class Armes {
+import game.Case;
+
+public abstract class Armes extends Case {
     //attribut --------------------------------------------------------------------------
     protected String name;
     protected int force;

@@ -1,6 +1,8 @@
 package com.company.armes;
 
-public abstract class Sort {
+import game.Case;
+
+public abstract class Sort extends Case {
     protected String name;
     protected int force;
 

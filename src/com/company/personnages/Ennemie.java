@@ -1,6 +1,8 @@
 package com.company.personnages;
 
-public abstract class Ennemie {
+import game.Case;
+
+public abstract class Ennemie extends Case {
     protected String name;
     protected int niveauvie;
     protected int niveauforce;
@@ -17,24 +19,24 @@ public abstract class Ennemie {
     }
 
     public Ennemie(int niveauforce, int niveauvie) {
-        this.niveauforce = 1;
-        this.niveauvie = 1;
+        this.niveauforce = niveauforce;
+        this.niveauvie = niveauvie;
     }
 
     public Ennemie(String name, int niveauforce, int niveauvie) {
-        this.name = "Ennemie";
-        this.niveauforce = 1;
-        this.niveauvie = 1;
+        this.name = name;
+        this.niveauforce = niveauforce;
+        this.niveauvie = niveauvie;
     }
 
     public Ennemie(String name, int niveauforce, int niveauvie, int vieMin, int vieMax, int forceMin, int forcemax) {
-        this.name = "Ennemie";
-        this.niveauforce = 1;
-        this.niveauvie = 1;
-        this.vieMin = 1;
-        this.vieMax = 3;
-        this.forceMin = 1;
-        this.forcemax = 3;
+        this.name = name;
+        this.niveauforce = niveauforce;
+        this.niveauvie = niveauvie;
+        this.vieMin = vieMin;
+        this.vieMax = vieMax;
+        this.forceMin = forceMin;
+        this.forcemax = forcemax;
 
     }
 
