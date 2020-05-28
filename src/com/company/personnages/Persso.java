@@ -3,8 +3,15 @@ package com.company.personnages;
 import java.util.Random;
 
 //apstract (empèche de d'instencier) pour limiter des risques !!!!!!!!!!!
+
+/**
+ * creation de ma class Persso() avec un type public et une methode abstract
+ */
 public abstract class Persso {
     //------------attribus/////-
+    /**
+     * initialisation de tous mes attribus de type int (entier) et String (texte)
+     */
     protected String name;
     protected int niveauDeVie;
     protected int forceAttaque;
@@ -13,26 +20,59 @@ public abstract class Persso {
     protected int forceMin;
     protected int forcemax;
 
+
     //-------constructeur /--------------
+
+    /**
+     * initialisation du constructeur persso() qui ne prend aucun paramettre
+     */
     public Persso() {
         this.name = "patrice";
         this.niveauDeVie = 7;
         this.forceAttaque = 8;
     }
 
+    /**
+     * initialisation du constructeur persso(avec 2 param)
+     *
+     * @param niveauDeVie  = niveau de vie que va avoir le hero incarner par le jouer
+     * @param forceAttaque = niveau de force que va avoir le hero incarner par le jouer
+     */
     public Persso(int niveauDeVie, int forceAttaque) {
         this.niveauDeVie = niveauDeVie;
         this.forceAttaque = forceAttaque;
 
     }
 
+    /**
+     * initialisation du constructeur persso(avec 3 param)
+     *
+     * @param name         le nom que va porter le hero incarner par le joueur
+     * @param niveauDeVie  niveau de vie que va avoir le hero incarner par le jouer
+     * @param forceAttaque niveau de force que va avoir le hero incarner par le jouer
+     */
     public Persso(String name, int niveauDeVie, int forceAttaque) {
         this.name = name;
         this.niveauDeVie = niveauDeVie;
         this.forceAttaque = forceAttaque;
     }
 
+    /**
+     * initialisation de mon constructeur avec 7 param
+     *
+     * @param name         le nom que va porter le hero incarner par le joueur
+     * @param niveauDeVie  niveau de vie que va avoir le hero incarner par le jouer
+     * @param forceAttaque niveau de force que va avoir le hero incarner par le jouer
+     * @param vieMin       la vie min du hero
+     * @param vieMax       la vie max du hero
+     * @param forceMin     la forece min du hero
+     * @param forcemax     la force max du hero
+     */
     public Persso(String name, int niveauDeVie, int forceAttaque, int vieMin, int vieMax, int forceMin, int forcemax) {
+        /**
+         * this.name = mane; ===> le nom = au nom qui sera instancier au moment de l'appel du constructeur.
+         * idem pour tous les autres
+         */
         this.name = name;
         this.niveauDeVie = niveauDeVie;
         this.forceAttaque = forceAttaque;
@@ -43,6 +83,12 @@ public abstract class Persso {
     }
 
     //-------------------------------------------------------
+
+    /**
+     * creation d'un getter (serv a afficher)
+     *
+     * @return name ===> le nom que l'utilidateur va entrer l'utilisateur
+     */
     public String getName() {
         return name;
     }
@@ -71,6 +117,12 @@ public abstract class Persso {
         return forcemax;
     }
 
+    /**
+     * je crer un setter (sert a modifier une valeur)
+     *
+     * @param name de type String qui servira a modifier le nom
+     *             avec setName("qsdbfsld") je nom prendra pour valeur qsdbfsld
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -100,7 +152,10 @@ public abstract class Persso {
         this.forcemax = forcemax;
     }
 
-    @Override
+  @Override
+   /**
+     *  public String toString() renvoie une chaine de caractères représentant l'objet renseigné.
+     */
     public String toString() {
         return "Persso{" +
                 "name='" + name + '\'' +

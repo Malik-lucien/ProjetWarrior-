@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.personnages.Guerrier;
-import game.Menu;
-import game.Plateau;
-import game.Tabplateau;
+import com.company.game.Menu;
 
 
 public class Main {
@@ -15,6 +12,11 @@ public class Main {
 //        newPlateau.tabSimp();
 //        Plateau plateau = new Plateau();
 //        System.out.println(plateau);
+
+//        Guerrier guerrier = new Guerrier();
+//        System.out.println(guerrier.somme());
+
+
         Menu menu = new Menu();
         menu.messageAcceuil();
         menu.choicePlayer();

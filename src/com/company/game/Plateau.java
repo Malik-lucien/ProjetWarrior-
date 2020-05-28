@@ -1,4 +1,4 @@
-package game;
+package com.company.game;
 
 import com.company.armes.BouleDeFeu;
 import com.company.armes.Eclaire;
@@ -12,7 +12,6 @@ import com.company.personnages.Sorcier;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Plateau {
     //--------------------------initialisation des variables--------------------------------
@@ -29,6 +28,7 @@ public class Plateau {
     private int nombreDeTour;
     private int casefin;
     private ArrayList<Case> cases;
+
 
 
     /**
@@ -86,6 +86,11 @@ public class Plateau {
                     break;
             }
             Collections.shuffle(cases);
+
+            //--------------------------------------------------------------------
+
+
+           //-------------------------------------------------------------------------
         }
 //        System.out.println(plateau.size());
 //        Case caseTeste = plateau.get(48);

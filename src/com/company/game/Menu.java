@@ -1,4 +1,4 @@
-package game;
+package com.company.game;
 
 import com.company.personnages.Guerrier;
 import com.company.personnages.Mage;

@@ -1,6 +1,6 @@
 package com.company.personnages;
 
-import game.Case;
+import com.company.game.Case;
 
 public abstract class Ennemie extends Case {
     protected String name;

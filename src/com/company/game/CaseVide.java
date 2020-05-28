@@ -1,4 +1,4 @@
-package game;
+package com.company.game;
 
 public class CaseVide extends Case{
     protected String caseVide;

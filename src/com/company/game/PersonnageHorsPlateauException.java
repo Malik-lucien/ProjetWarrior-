@@ -1,4 +1,4 @@
-package game;
+package com.company.game;
 
 public class PersonnageHorsPlateauException extends Exception {
     public PersonnageHorsPlateauException(){

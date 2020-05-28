@@ -4,6 +4,7 @@ public class Guerrier extends Persso {
     // POUR CHAQUE ATTRIBUT FAIRE UN GETTER ET UN SETTER,  IMPOSSIBLE D4ACCEDER DIRECTEMENT AU ATTRIBUT DE C'
     protected String bouclier;
     protected String arme;
+    public int somVieForce;
 
     //----------------------------constructeur----------------------------------------
     public Guerrier() {
@@ -12,7 +13,12 @@ public class Guerrier extends Persso {
         this.arme = "albarde";
 
     }
+    public int somme(){
 
+        somVieForce = niveauDeVie + forceAttaque;
+        return somVieForce;
+
+    }
     public Guerrier(String name) {
         this("malik", 5, 10);
     }

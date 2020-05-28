@@ -1,6 +1,6 @@
 package com.company.bonus;
 
-import game.Case;
+import com.company.game.Case;
 
 public abstract class Bonus extends Case {
     protected String name;

@@ -1,6 +1,6 @@
 package com.company.armes;
 
-import game.Case;
+import com.company.game.Case;
 
 public abstract class Armes extends Case {
     //attribut --------------------------------------------------------------------------
