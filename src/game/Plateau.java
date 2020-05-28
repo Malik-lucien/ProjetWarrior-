@@ -11,6 +11,8 @@ import com.company.personnages.Goblins;
 import com.company.personnages.Sorcier;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Plateau {
     //--------------------------initialisation des variables--------------------------------
@@ -25,7 +27,8 @@ public class Plateau {
     private int resultDice;
     private int retourCaseDepart;
     private int nombreDeTour;
-    private ArrayList cases;
+    private int casefin;
+    private ArrayList<Case> cases;
 
 
     /**
@@ -39,40 +42,57 @@ public class Plateau {
      */
     public Plateau() {
         casePlateaux = 64;
+        casefin = 64;
         caseDepart = 1;
         positionJoueur = caseDepart;
         nombreDeTour = 0;
+        dice1 = (int) (Math.random() * (7));
         resultDice = dice1;
         retourCaseDepart = caseDepart;
-        ArrayList<Case> plateau = new ArrayList<>();
-        for (int i = 0; i < this.casePlateaux; i++) {
+        cases = new ArrayList<>();
+
+        for (int i = 0; i < this.casePlateaux + 1; i++) {
+
             switch (i) {
                 case 45, 52, 56, 62:
-                    plateau.add(new Dragons());
+                    cases.add(new Dragons());
+                    break;
                 case 10, 20, 25, 32, 35, 36, 37, 40, 44, 47:
-                    plateau.add(new Sorcier());
+                    cases.add(new Sorcier());
+                    break;
                 case 3, 6, 9, 12, 15, 18, 21, 24, 27, 30:
-                    plateau.add(new Goblins());
+                    cases.add(new Goblins());
+                    break;
                 case 2, 11, 5, 22, 38:
-                    plateau.add(new Massue());
+                    cases.add(new Massue());
+                    break;
                 case 19, 26, 42, 53:
-                    plateau.add(new Epees());
+                    cases.add(new Epees());
+                    break;
                 case 1, 4, 8, 17, 23:
-                    plateau.add(new Eclaire());
+                    cases.add(new Eclaire());
+                    break;
                 case 48, 49:
-                    plateau.add(new BouleDeFeu());
+                    cases.add(new BouleDeFeu());
+                    break;
                 case 7, 13, 31, 33, 39, 43:
-                    plateau.add(new PotionStandard());
+                    cases.add(new PotionStandard());
+                    break;
                 case 28, 41:
-                    plateau.add(new GrandPotion());
+                    cases.add(new GrandPotion());
+                    break;
+                default:
+                    cases.add(new CaseVide());
+                    break;
             }
-
+            Collections.shuffle(cases);
         }
+//        System.out.println(plateau.size());
+//        Case caseTeste = plateau.get(48);
+//        for (int c = 0; c < plateau.size(); c++) {
+//            System.out.println(" vous etes sur la case " + c + plateau.get(c));
+//        }
 
-        Case caseTeste = plateau.get(48);
-        for (int c = 0; c < plateau.size(); c++) {
-            System.out.println("vous etes sur la case ");
-        }
 
     }
 
@@ -126,6 +146,10 @@ public class Plateau {
     public void setRetourCaseDepart(int retourCaseDepart) {
         this.retourCaseDepart = retourCaseDepart;
     }
+
+    public void setCases(ArrayList cases) {
+        this.cases = cases;
+    }
     //-------------------------------- getter --------------------------------------
 
     /**
@@ -157,6 +181,10 @@ public class Plateau {
         return this.retourCaseDepart;
     }
 
+    public ArrayList getCases() {
+        return this.cases;
+    }
+
 //----------------------------------methode-------------------------------------------------
 
     /**
@@ -171,31 +199,37 @@ public class Plateau {
         /**
          * tant que pos jouer et < casePlat ou pose J > casePlat alors je continue de faire />
          */
-        while (positionJoueur < casePlateaux || positionJoueur > casePlateaux) {
+        while (positionJoueur < casefin || positionJoueur > casefin) {
             resultDice = (int) (Math.random() * (7));
+            /**
+             * la position du joueur avance
+             */
+            nombreDeTour++;
+            System.out.println(" lancer n° " + nombreDeTour);
             /**
              * lancer un dé compris en 0 et 6
              */
             positionJoueur += resultDice;
             /**
-             * la position du joueur avance
-             */
-            nombreDeTour++;
-            /**
              * le nombre de toure augmente de 1 a chaque tour de boucle
              */
-            if (positionJoueur == casePlateaux) {
+            if (positionJoueur == casefin) {
                 /**
                  * si  pjoueur = casePlateaux alors affiche vous avez gagner
                  */
-                System.out.println("Fin de partie felicitation vous, n'êtes pas mort");
+                System.out.println(" Fin de partie felicitation vous, n'êtes pas mort ");
 
-            } else if (positionJoueur > casePlateaux) {
+            } else if (positionJoueur > casefin) {
                 /**
                  * sinon si pjouer > casePlateau alors créer une nouvelle ecxeption
                  */
-                throw new PersonnageHorsPlateauException();
+                positionJoueur -= resultDice * 2;
+                if (positionJoueur > casefin) {
+                    throw new PersonnageHorsPlateauException();
+                }
             }
+            System.out.println(" vous avez avancer de " + resultDice + " vous etes sur la case " + positionJoueur + cases.get(positionJoueur));
+
         }
     }
 
@@ -204,6 +238,6 @@ public class Plateau {
      * string tostring permet de retranscrire les attributs en string
      */
     public String toString() {
-        return " la position du joueur est: " + positionJoueur + " dice: " + resultDice + " nombre de lancer " + nombreDeTour;
+        return " vous etes sur la case : " + positionJoueur + " dice: " + resultDice + " nombre de lancer " + nombreDeTour;
     }
 }

@@ -10,11 +10,11 @@ public abstract class Armes extends Case {
 
     //----------constructeur ------------------------------------------------------------
     public Armes() {
-        name ="Epee";
+        name =" Epee ";
         force = 5;
     }
     public Armes(String name, int force){
-        this.name = "Epee";
+        this.name = " Epee ";
         this.force = 5;
     }
     //---------getter /setter ------------------------------------------

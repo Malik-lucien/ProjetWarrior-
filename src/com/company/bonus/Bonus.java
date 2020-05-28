@@ -13,7 +13,7 @@ public abstract class Bonus extends Case {
         this.grandePotionDeVie = 5;
     }
     Bonus(String name, int potionDeVie){
-        this.name = "potion de vie";
+        this.name = " potion de vie ";
         this.potionDeVie = 2;
     }
     public int getPotionDeVie() {

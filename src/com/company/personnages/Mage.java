@@ -7,9 +7,9 @@ public class Mage extends Persso {
 
     //------------------------------------------------------------------------
     public Mage() {
-        super("lucifer", 6, 15,3,6,8,15);
-        this.defence = "philtre";
-        this.sort = "avada-quedavra";
+        super(" lucifer ", 6, 15,3,6,8,15);
+        this.defence = " philtre ";
+        this.sort = " avada-quedavra ";
 
     }
 
@@ -18,13 +18,13 @@ public class Mage extends Persso {
     }
 
     public Mage(int niveauDeVie, int forceAttaque) {
-        this("malik",niveauDeVie, forceAttaque);
+        this(" malik ",niveauDeVie, forceAttaque);
     }
 
     public Mage(String name, int niveauDeVie, int forceAttaque) {
         super(name, niveauDeVie, forceAttaque,3,6,8,15);
-        this.defence ="philtre";
-        this.sort ="avada-quedavra";
+        this.defence =" philtre ";
+        this.sort =" avada-quedavra ";
     }
 
     //----------------------override--------------------------------------------------

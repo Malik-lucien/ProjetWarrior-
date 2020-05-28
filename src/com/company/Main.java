@@ -13,18 +13,15 @@ public class Main {
 //        Tabplateau newPlateau = new Tabplateau();
 //        System.out.println(newPlateau);
 //        newPlateau.tabSimp();
+//        Plateau plateau = new Plateau();
+//        System.out.println(plateau);
         Menu menu = new Menu();
         menu.messageAcceuil();
         menu.choicePlayer();
         menu.lancerPartie();
 
 
-
-
-
-
         //---------------------------------------------------------------------------------
-
 
 
         //--------------------------------------------------------------------------------------

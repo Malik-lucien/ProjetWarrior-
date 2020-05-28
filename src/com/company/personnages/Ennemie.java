@@ -12,7 +12,7 @@ public abstract class Ennemie extends Case {
     protected int forcemax;
 
     public Ennemie() {
-        this.name = "ENNEMIE";
+        this.name = " ENNEMIE ";
         this.niveauforce = 1;
         this.niveauvie = 1;
 
