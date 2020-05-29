@@ -2,6 +2,7 @@ package com.company.game;
 
 import com.company.personnages.Guerrier;
 import com.company.personnages.Mage;
+import com.company.personnages.Persso;
 
 
 import java.util.Scanner;
@@ -36,7 +37,7 @@ public class Menu {
     /**
      * utiliser scanner (pour lire les resultat pour renvoyer au main le resultat du scanner avec un return
      */
-    public void choicePlayer() {
+    public Persso choicePlayer() {
 
         boolean created = false;
         Scanner scanner = new Scanner(System.in);
@@ -49,43 +50,44 @@ public class Menu {
                 Guerrier guerrier = new Guerrier();
                 created = true;
                 System.out.println(" vous avez choisi: " + guerrier.toString());
+                return guerrier;
+
             } else if (choise.equals("mage")) {
                 Mage mage = new Mage();
                 created = true;
                 System.out.println(" vous avez choisi: " + mage.toString());
+                return mage;
             } else if (choise.equals("licorne")) {
                 System.out.println("ne te prend pas pour une licore petit scarabé ");
+
             } else {
                 System.out.println("erreur saisir donner valide");
             }
         }
-
 /** la methode scanner sert a lire les informations entrées par l'utilisateur  et en suite pouvoir interagire avec!, .nextLine serv a taper les informations dans la console,
  *  avec .equals() je peux verifier si l'utilisateur a rentrer la bonne donner*/
-
         System.out.println(" choisisez votre hero ");
         String choice = scanner.nextLine();
         System.out.println(" vous avez choisie: " + choice + " ? confirmer avec y pour 'yes', ou n pour  'no'");
         String verif = scanner.nextLine();
-
         if (verif.equals("y")) {
             System.out.println(" let is go ?");
-
         } else {
             System.out.println("retour a l'acceuil ");
             messageAcceuil();
             choicePlayer();
         }
+        return null;
     }
 
-    public void lancerPartie() {
+    public void lancerPartie(Persso personnage) {
         Scanner scanner = new Scanner(System.in);
         Plateau plateau = new Plateau();
         String start = scanner.nextLine();
         if (start.equals("y")) {
             System.out.println(" go  !!!!!!!!!!!!!! ");
             try {
-                plateau.rulesGame();
+                plateau.rulesGame(personnage);
             } catch (PersonnageHorsPlateauException e) {
                 newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
                 plateau.setPositionJoueur(newspos);
@@ -103,7 +105,7 @@ public class Menu {
         System.out.println(" restart ? ");
         if (verif1.equals("y")) {
             try {
-                plateau.rulesGame();
+                plateau.rulesGame(personnage);
             } catch (PersonnageHorsPlateauException e) {
                 newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
                 plateau.setPositionJoueur(newspos);

@@ -1,5 +1,7 @@
 package com.company.personnages;
 
+import com.company.game.Case;
+
 import java.util.Random;
 
 //apstract (empèche de d'instencier) pour limiter des risques !!!!!!!!!!!
@@ -7,7 +9,7 @@ import java.util.Random;
 /**
  * creation de ma class Persso() avec un type public et une methode abstract
  */
-public abstract class Persso {
+public abstract class Persso extends Case   {
     //------------attribus/////-
     /**
      * initialisation de tous mes attribus de type int (entier) et String (texte)

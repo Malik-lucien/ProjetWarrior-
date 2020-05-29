@@ -97,5 +97,17 @@ public abstract class Ennemie extends Case {
         this.forcemax = forcemax;
     }
 
+    @Override
+    public void interaction(Persso personnage) {
+        while (niveauvie > 0) {
+           if (niveauforce > personnage.getForceAttaque()){
 
+           }else if (niveauvie == 0){
+               System.out.println(" l'ennemie est mort ");
+           }
+        }
+        System.out.println("INTERACTION CASE");
+    }
 }
+
+

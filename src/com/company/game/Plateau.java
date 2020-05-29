@@ -6,19 +6,14 @@ import com.company.armes.Epees;
 import com.company.armes.Massue;
 import com.company.bonus.GrandPotion;
 import com.company.bonus.PotionStandard;
-import com.company.personnages.Dragons;
-import com.company.personnages.Goblins;
-import com.company.personnages.Sorcier;
+import com.company.personnages.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Plateau {
-    //--------------------------initialisation des variables--------------------------------
-    /**
-     * DANS UNE PREMIER TEMPS JE VAIS INITIALISER DES VARIABLES PRIVATE (ACCECIBLE UNIQUEMENT DANS CE FICHIER)
-     * AVEC LES ATTRIBUT DONS J'AI BESOIN
-     */
+
+public class Plateau{
+
     private int casePlateaux;
     private int caseDepart;
     private int positionJoueur;
@@ -30,23 +25,15 @@ public class Plateau {
     private ArrayList<Case> cases;
 
 
-
-    /**
-     * ARRAYLIST : TABLEAU
-     */
     //-----------------------------constructeur -----------------------------------------------------------
 
-    /**
-     * JE CONSTRUIT UN CONSTRUCTEUR SANS PARAMETRE
-     * QUI AURA DES VALEUR PAR DEFAUT COMME SI DESOUS
-     */
     public Plateau() {
         casePlateaux = 64;
         casefin = 64;
         caseDepart = 1;
         positionJoueur = caseDepart;
         nombreDeTour = 0;
-        dice1 = (int) (Math.random() * (7));
+        dice1 = (int) (Math.random() * (6) + 1);
         resultDice = dice1;
         retourCaseDepart = caseDepart;
         cases = new ArrayList<>();
@@ -86,32 +73,8 @@ public class Plateau {
                     break;
             }
             Collections.shuffle(cases);
-
-            //--------------------------------------------------------------------
-
-
-           //-------------------------------------------------------------------------
         }
-//        System.out.println(plateau.size());
-//        Case caseTeste = plateau.get(48);
-//        for (int c = 0; c < plateau.size(); c++) {
-//            System.out.println(" vous etes sur la case " + c + plateau.get(c));
-//        }
-
-
     }
-
-    /**
-     * JE CRER UN AUTRE CONSTRUCTEUR AVEC PLUSIEUR PARAMETRES
-     *
-     * @param casePlateaux
-     * @param caseDepart
-     * @param positionJoueur
-     * @param resultDice
-     * @param nombreDeTour   JE FAIT APPEL A C'EST  PARAM EN UTILISANT LE MOTS CLEF THIS.
-     *                       EXEMPLE :   this.caseDepart = caseDepart;
-     *                       LA CASE DEPART PRENDRAT POUR VALEUR CA QUE L'UTILISATEUR ENTRERA QUAND IL APPELERA LA METHODE PLATEAU
-     */
 
     public Plateau(int casePlateaux, int caseDepart, int positionJoueur, int resultDice, int nombreDeTour) {
         this.casePlateaux = casePlateaux;
@@ -121,12 +84,6 @@ public class Plateau {
         this.nombreDeTour = nombreDeTour;
         this.dice1 = resultDice;
     }
-
-    /**
-     * LE SETTER SERV A MODIFIER DES VALEUR QµDANS LE FICHIER .
-     * NOUS LUTILISON DE LA NAGNERE SUIVANTE : setCasePlateaux(UN ENTIER)
-     * CELA MODIFIRA LA VALEUR DE CASE PLATEAU
-     */
 
     public void setCasePlateaux(int casePlateaux) {
         this.casePlateaux = casePlateaux;
@@ -157,10 +114,6 @@ public class Plateau {
     }
     //-------------------------------- getter --------------------------------------
 
-    /**
-     * LE GETTER LUI SE CHARGE JUSTE DE R'ENVOYER LA VALEUR QUI LUI EST DONNER
-     * retourne moi la valeur de casePlateaux(), il ne prend auccune valeur en parametre
-     */
 
     public int getCasePlateaux() {
         return this.casePlateaux;
@@ -192,56 +145,30 @@ public class Plateau {
 
 //----------------------------------methode-------------------------------------------------
 
-    /**
-     * une metode est un enssemble de règle ecrite par le developpeur
-     *
-     * @throws PersonnageHorsPlateauException dans mon cas je cree une methode public qui se nome ruleGame(), elle est suivi de trows ... {} ce qui veut dire qui dans cette parcelle de code il peut y avoir un risque
-     */
 
-    public void rulesGame() throws PersonnageHorsPlateauException {
-
+    public void rulesGame(Persso personnage) throws PersonnageHorsPlateauException {
         positionJoueur = caseDepart;
-        /**
-         * tant que pos jouer et < casePlat ou pose J > casePlat alors je continue de faire />
-         */
-        while (positionJoueur < casefin || positionJoueur > casefin) {
-            resultDice = (int) (Math.random() * (7));
-            /**
-             * la position du joueur avance
-             */
+        while (positionJoueur <= casefin) {
+            resultDice = (int) (Math.random() * (6) + 1);
             nombreDeTour++;
             System.out.println(" lancer n° " + nombreDeTour);
-            /**
-             * lancer un dé compris en 0 et 6
-             */
             positionJoueur += resultDice;
-            /**
-             * le nombre de toure augmente de 1 a chaque tour de boucle
-             */
             if (positionJoueur == casefin) {
-                /**
-                 * si  pjoueur = casePlateaux alors affiche vous avez gagner
-                 */
                 System.out.println(" Fin de partie felicitation vous, n'êtes pas mort ");
-
             } else if (positionJoueur > casefin) {
-                /**
-                 * sinon si pjouer > casePlateau alors créer une nouvelle ecxeption
-                 */
-                positionJoueur -= resultDice * 2;
-                if (positionJoueur > casefin) {
-                    throw new PersonnageHorsPlateauException();
+                throw new PersonnageHorsPlateauException();
+            } else {
+                if (cases.get(positionJoueur) instanceof Ennemie) {
+                    Ennemie ennemie = (Ennemie) cases.get(positionJoueur);
+                ennemie.interaction(personnage);
+
                 }
             }
-            System.out.println(" vous avez avancer de " + resultDice + " vous etes sur la case " + positionJoueur + cases.get(positionJoueur));
-
+            System.out.println(" vous avez avancer de " + resultDice + " vous etes sur la case " + positionJoueur + cases.get(positionJoueur).toString());
         }
     }
 
     @Override
-    /**
-     * string tostring permet de retranscrire les attributs en string
-     */
     public String toString() {
         return " vous etes sur la case : " + positionJoueur + " dice: " + resultDice + " nombre de lancer " + nombreDeTour;
     }
