@@ -1,8 +1,9 @@
 package com.company.armes;
 
 import com.company.game.Case;
+import com.company.personnages.Persso;
 
-public abstract class Sort extends Case {
+public abstract class Sort implements Case {
     protected String name;
     protected int force;
 
@@ -11,10 +12,16 @@ public abstract class Sort extends Case {
         force = 10000;
 
     }
-   public Sort(String name,int force){
-        this.name= "éclaire";
-        this.force=2;
-   }
+
+    public Sort(String name, int force) {
+        this.name = "éclaire";
+        this.force = 2;
+    }
+
+    public void interaction(Persso mage) {
+        mage.forceAttaque += this.force;
+        System.out.println(" il ya un sort  : " + mage.forceAttaque);
+    }
 
 //---------------------------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@ public class Guerrier extends Persso {
 
     //----------------------------constructeur----------------------------------------
     public Guerrier() {
-        super("malik", 5, 10, 0, 10, 1, 10);
+        super("malik", 10, 10, 0, 10, 1, 10);
         this.bouclier = "";
         this.arme = "albarde";
 
@@ -20,17 +20,30 @@ public class Guerrier extends Persso {
 
     }
     public Guerrier(String name) {
-        this("malik", 5, 10);
+        this(name, 15, 15);
+        this.bouclier = "";
+        this.arme = "albarde";
+
     }
 
     public Guerrier(int forceAttaque, int niveauDeVie) {
-        this("toto", niveauDeVie, forceAttaque);
+        this("malik", niveauDeVie, forceAttaque);
+        this.bouclier = "";
+        this.arme = "albarde";
+
     }
 
     public Guerrier(String name, int niveauDeVie, int forceAttaque) {
-        super(name, niveauDeVie, forceAttaque);
+        super(name, niveauDeVie, forceAttaque,0,10,1,10);
+        this.bouclier = "";
+        this.arme = "albarde";
+
     }
 
+    public void interaction(Persso guerrier) {
+
+
+    }
     //-----------------------override------------------------------------------------------------------------
     @Override
     public String toString() {

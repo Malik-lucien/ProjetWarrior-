@@ -15,16 +15,24 @@ public class Mage extends Persso {
 
     public Mage(String name) {
         this(name,6,15);
+        this.defence = " philtre ";
+        this.sort = " avada-quedavra ";
     }
 
     public Mage(int niveauDeVie, int forceAttaque) {
         this(" malik ",niveauDeVie, forceAttaque);
+        this.defence = " philtre ";
+        this.sort = " avada-quedavra ";
     }
 
     public Mage(String name, int niveauDeVie, int forceAttaque) {
         super(name, niveauDeVie, forceAttaque,3,6,8,15);
         this.defence =" philtre ";
         this.sort =" avada-quedavra ";
+    }
+    public void interaction(Persso guerrier) {
+
+
     }
 
     //----------------------override--------------------------------------------------

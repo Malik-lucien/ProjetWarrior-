@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Plateau{
+public class Plateau {
 
     private int casePlateaux;
     private int caseDepart;
@@ -148,7 +148,7 @@ public class Plateau{
 
     public void rulesGame(Persso personnage) throws PersonnageHorsPlateauException {
         positionJoueur = caseDepart;
-        while (positionJoueur <= casefin) {
+        while (positionJoueur < casefin) {
             resultDice = (int) (Math.random() * (6) + 1);
             nombreDeTour++;
             System.out.println(" lancer n° " + nombreDeTour);
@@ -157,12 +157,12 @@ public class Plateau{
                 System.out.println(" Fin de partie felicitation vous, n'êtes pas mort ");
             } else if (positionJoueur > casefin) {
                 throw new PersonnageHorsPlateauException();
-            } else {
-                if (cases.get(positionJoueur) instanceof Ennemie) {
-                    Ennemie ennemie = (Ennemie) cases.get(positionJoueur);
+//                positionJoueur -= resultDice * 2;
+            }
+            if (cases.get(positionJoueur) instanceof Ennemie) {
+                Ennemie ennemie = (Ennemie) cases.get(positionJoueur);
                 ennemie.interaction(personnage);
 
-                }
             }
             System.out.println(" vous avez avancer de " + resultDice + " vous etes sur la case " + positionJoueur + cases.get(positionJoueur).toString());
         }
@@ -173,3 +173,18 @@ public class Plateau{
         return " vous etes sur la case : " + positionJoueur + " dice: " + resultDice + " nombre de lancer " + nombreDeTour;
     }
 }
+//  try {
+//          plateau.rulesGame(personnage);
+//          } catch (PersonnageHorsPlateauException e) {
+//          newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
+//          plateau.setPositionJoueur(newspos);
+////                e.printStackTrace();
+//          System.out.println(e.getMessage());
+//          }
+
+
+//private void removeCase(int index){
+//  cases.set(index, new CaseVide());
+//}/* creer une methode priver permettant d'jouter une case passer en parametre a un index donnée
+//    creer unemethode priver qui retoune une case a l'index donner en parametre
+//*/

@@ -2,7 +2,7 @@ package com.company.armes;
 
 public class Eclaire extends Sort {
     public Eclaire() {
-        super(" Eclaire ", 2);
+        super(" Eclaire  ", 2);
 
     }
 

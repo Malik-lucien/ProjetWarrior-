@@ -43,7 +43,7 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         while (!created) {
             System.out.println("quel personnage voulez vous jouez ? " +
-                    " - mage " +
+                    " - mage " + " ou  " +
                     " - guerrier ");
             String choise = scanner.nextLine();
             if (choise.equals("guerrier")) {
@@ -66,9 +66,9 @@ public class Menu {
         }
 /** la methode scanner sert a lire les informations entrées par l'utilisateur  et en suite pouvoir interagire avec!, .nextLine serv a taper les informations dans la console,
  *  avec .equals() je peux verifier si l'utilisateur a rentrer la bonne donner*/
-        System.out.println(" choisisez votre hero ");
-        String choice = scanner.nextLine();
-        System.out.println(" vous avez choisie: " + choice + " ? confirmer avec y pour 'yes', ou n pour  'no'");
+//        System.out.println(" choisisez votre hero ");
+//        String choice = scanner.nextLine();
+//        System.out.println(" vous avez choisie: " + choice + " ? confirmer avec y pour 'yes', ou n pour  'no'");
         String verif = scanner.nextLine();
         if (verif.equals("y")) {
             System.out.println(" let is go ?");
@@ -84,6 +84,7 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         Plateau plateau = new Plateau();
         String start = scanner.nextLine();
+
         if (start.equals("y")) {
             System.out.println(" go  !!!!!!!!!!!!!! ");
             try {
@@ -91,8 +92,7 @@ public class Menu {
             } catch (PersonnageHorsPlateauException e) {
                 newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
                 plateau.setPositionJoueur(newspos);
-//                e.printStackTrace();
-                System.out.println(e.getMessage());
+                newspos += plateau.getResultDice();
             }
         } else {
             System.out.println(" retour a l'acceil !");
@@ -106,9 +106,13 @@ public class Menu {
         if (verif1.equals("y")) {
             try {
                 plateau.rulesGame(personnage);
+                if (plateau.getPositionJoueur() < 64){
+                    newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
+                }
             } catch (PersonnageHorsPlateauException e) {
-                newspos = plateau.getPositionJoueur() - plateau.getResultDice() * 2;
+
                 plateau.setPositionJoueur(newspos);
+                newspos += plateau.getPositionJoueur();
             }
         } else {
             System.out.println(" exit ");

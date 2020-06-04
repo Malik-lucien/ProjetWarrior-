@@ -1,8 +1,11 @@
 package com.company.personnages;
 
+import com.company.armes.Massue;
 import com.company.game.Case;
+import com.company.game.Menu;
+import com.company.game.Plateau;
 
-public abstract class Ennemie extends Case {
+public abstract class Ennemie implements Case {
     protected String name;
     protected int niveauvie;
     protected int niveauforce;
@@ -99,14 +102,31 @@ public abstract class Ennemie extends Case {
 
     @Override
     public void interaction(Persso personnage) {
-        while (niveauvie > 0) {
-           if (niveauforce > personnage.getForceAttaque()){
+        while (this.niveauvie > 0 && personnage.getNiveauDeVie() > 0) {
+            if (this.niveauforce > personnage.getForceAttaque()) {
+                personnage.niveauDeVie -= this.niveauforce;
+                System.out.println(" vous avez :" + personnage.niveauDeVie);
+                if (this.niveauvie == 0) {
+                    System.out.println(" l'ennelie es mort ");
 
-           }else if (niveauvie == 0){
-               System.out.println(" l'ennemie est mort ");
-           }
+                } else if (personnage.getNiveauDeVie() <= 0) {
+                    System.out.println(" vous êtes mort ");
+                    System.exit(0);
+
+                }
+            } else if (personnage.forceAttaque > this.niveauvie) {
+                this.niveauvie -= personnage.forceAttaque;
+                System.out.println(" l'ennemie a  :" + niveauvie);
+                if (this.niveauvie == 0) {
+                    System.out.println(" l'ennelie es mort ");
+
+                } else if (personnage.getNiveauDeVie() <= 0) {
+                    System.out.println(" vous êtes mort ");
+                    System.exit(0);
+                }
+            }
         }
-        System.out.println("INTERACTION CASE");
+        System.out.println(" ennemie ici ");
     }
 }
 
